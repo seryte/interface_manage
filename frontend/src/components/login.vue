@@ -2,25 +2,25 @@
   <div class="login-main-context">
     <div class="login-title">
       账号登录
-      </div>
-      <el-form ref="ruleForm" :model="form" :rules="rules" label-width="100px" class="login-ruleForm">
-        <el-form-item label="用户名" prop="name">
-          <el-input v-model="form.name"></el-input>
-        </el-form-item>
-
-          <el-form-item label="密码" prop="pwd">
-          <el-input v-model="form.pwd"></el-input>
-        </el-form-item>
-
-      </el-form>
-        <div class="login-button-class">
-          <el-button type="primary" @click="login">登录</el-button>
-          <el-button type="warning" @click="register">注册</el-button>
-        </div>
     </div>
-  </template>
+    <el-form ref="ruleForm" :model="form" :rules="rules" label-width="100px" class="login-ruleForm">
+      <el-form-item label="用户名" prop="name">
+        <el-input v-model="form.name"></el-input>
+      </el-form-item>
+
+      <el-form-item label="密码" prop="pwd">
+        <el-input v-model="form.pwd"></el-input>
+      </el-form-item>
+
+    </el-form>
+    <div class="login-button-class">
+      <el-button type="primary" @click="login">登录</el-button>
+      <el-button type="warning" @click="register">注册</el-button>
+    </div>
+  </div>
+</template>
 <script>
-  import {login} from "../requests/user";
+  import {register, login} from "../requests/user";
 
   export default {
     data() {
@@ -45,25 +45,40 @@
     methods: {
       login() {
         console.log('login!');
-        this.$refs.ruleForm.validate((valid)=>{
-          if(valid) {
-            login(this.form.name, this.form.pwd).then(data=>{
-              console.log(data)
+        this.$refs.ruleForm.validate((valid) => {
+          if (valid) {
+            login(this.form.name, this.form.pwd).then(data => {
+              if (true === data.success) {
+                this.$message.success('login success')
+                this.$router.push('/');
+              } else {
+                this.$message.error('login failed')
+              }
             })
           }
-          else{
-            console.log("failed")
+          else {
+            console.log("error login submit!!")
+            return false;
           }
         })
       },// login结束
-      register(){
+      register() {
         console.log("register!")
-        this.$refs.ruleForm.validate((valid)=>{
-          if(valid) {
-            alert("success")
+        this.$refs.ruleForm.validate((valid) => {
+          if (valid) {
+            register(this.form.name, this.form.pwd).then(data => {
+              console.log(data)
+              if (true === data.success) {
+                this.$message.success('register success')
+                // this.$router.push('/');
+              } else {
+                this.$message.error('register failed')
+              }
+            })
           }
-          else{
-            console.log("failed")
+          else {
+            console.log("error register submit!!")
+            return false;
           }
         })
       } // register结束
