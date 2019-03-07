@@ -7,7 +7,7 @@
         <span>接口测试系统</span>
       </div>
       <div>
-        <i class="el-icon-info icon-color"></i>&nbsp;关于
+        <i class="el-icon-info icon-color"> 关于</i>&nbsp;
       </div>
     </div>
     <router-view/>
@@ -15,9 +15,16 @@
 </template>
 
 <script>
-export default {
-  name: 'App'
-}
+  import interface_png from './assets/interface.png'
+
+  export default {
+    name: 'App',
+    data() {
+      return {
+        head_img: interface_png,
+      }
+    }
+  }
 </script>
 
 <style>
@@ -33,7 +40,7 @@ export default {
     margin: 0
   }
   .main-head {
-    background: #eff4fa;
+    background: #24292E;
     height: 60px;
     display: flex;
     justify-content: space-between;
@@ -43,12 +50,13 @@ export default {
   .head-img {
     display: flex;
     align-items: center;
+    color: #FFFFFF;
   }
   .head-img span {
     font-size: 20px;
     margin-left: 10px;
   }
   .icon-color {
-    color: #5a98de;
+    color: #FFFFFF;
   }
 </style>

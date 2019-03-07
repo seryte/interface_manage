@@ -21,6 +21,7 @@
 </template>
 <script>
   import {register, login} from "../requests/user";
+  import VueCookies from "vue-cookies";
 
   export default {
     data() {
@@ -49,14 +50,16 @@
           if (valid) {
             login(this.form.name, this.form.pwd).then(data => {
               if (true === data.success) {
+                let session = data.data.session
+                VueCookies.set("token", session, 1209600)
+                console.log(document.cookie)
                 this.$message.success('login success')
                 this.$router.push('/');
               } else {
                 this.$message.error('login failed')
               }
             })
-          }
-          else {
+          } else {
             console.log("error login submit!!")
             return false;
           }
@@ -69,14 +72,15 @@
             register(this.form.name, this.form.pwd).then(data => {
               console.log(data)
               if (true === data.success) {
+                let session = data.data.session
+                VueCookies.set("token", session, 1209600)
                 this.$message.success('register success')
                 // this.$router.push('/');
               } else {
                 this.$message.error('register failed')
               }
             })
-          }
-          else {
+          } else {
             console.log("error register submit!!")
             return false;
           }
