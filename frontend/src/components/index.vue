@@ -22,7 +22,7 @@
           console.log(data.data)
           this.current_user = data.data
         } else {
-          this.$message.error(data.message)
+          this.$message.error(data.message)  // 弹出后台message中的信息
           this.$router.push('/login');
         }
       })

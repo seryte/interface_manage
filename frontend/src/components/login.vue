@@ -37,7 +37,7 @@
           ],
           pwd: [
             {required: true, message: '请输入密码', trigger: 'blue'},
-            {min: 3, max: 21, message: '长度3到21个字符', trigger: 'blue'}
+            {min: 3, max: 20, message: '长度3到21个字符', trigger: 'blue'}
           ],
 
         },
