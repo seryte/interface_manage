@@ -17,6 +17,7 @@ from interface_app.my_exception import MyException
 class UserViews(View):
 
     def get(self, request, *args, **kwargs):
+        # common.logger.info("我是日志")
         # raise MyException("test啊")
         token = request.META.get("HTTP_TOKEN", None)
         print(token)

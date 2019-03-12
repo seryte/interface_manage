@@ -1,4 +1,5 @@
 import json
+import logging
 from django.http import JsonResponse
 
 
@@ -17,3 +18,6 @@ def respone_success(data={}):
 
 def respone_failed(message):
     return respone_json(False, message, {})
+
+
+logger = logging.getLogger(__name__)

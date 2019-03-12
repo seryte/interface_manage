@@ -1,0 +1,8 @@
+2019-03-12 20:26:32,671 INFO     C:\Python37\lib\site-packages\django\core\servers\basehttp.py[line:124] "OPTIONS /get_user HTTP/1.1" 200 0
+2019-03-12 20:26:32,798 INFO     C:\Python37\lib\site-packages\django\core\servers\basehttp.py[line:124] "GET /get_user HTTP/1.1" 200 77
+2019-03-12 20:29:01,479 INFO     C:\Python37\lib\site-packages\django\core\servers\basehttp.py[line:124] "OPTIONS /login HTTP/1.1" 200 0
+2019-03-12 20:29:02,003 INFO     C:\Python37\lib\site-packages\django\core\servers\basehttp.py[line:124] "PUT /login HTTP/1.1" 200 124
+2019-03-12 20:29:02,026 INFO     C:\Python37\lib\site-packages\django\core\servers\basehttp.py[line:124] "OPTIONS /get_user HTTP/1.1" 200 0
+2019-03-12 20:29:02,043 INFO     C:\Python37\lib\site-packages\django\core\servers\basehttp.py[line:124] "GET /get_user HTTP/1.1" 200 77
+2019-03-12 20:30:18,336 INFO     C:\Python37\lib\site-packages\django\core\servers\basehttp.py[line:124] "GET /get_user HTTP/1.1" 200 77
+2019-03-12 20:30:40,801 INFO     C:\Python37\lib\site-packages\django\core\servers\basehttp.py[line:124] "GET /get_user HTTP/1.1" 200 77
